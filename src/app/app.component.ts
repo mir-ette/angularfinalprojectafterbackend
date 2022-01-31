@@ -1,31 +1,23 @@
 import { Component } from '@angular/core';
- import{Product, ProductWithCounter} from'./_models/product/product.model'
+import { Product } from './_models/product/product.model';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'mirette_angular';
-
-//addedProduct:ProductWithCounter[] =[];
-// testProduct:ProductWithCounter=[]
-
-//  onItemAdded(product:Product){
-// console.log(product);
-// //logic
-// const newProduct:ProductWithCounter=
-// {...Product, cartCounter:1}
-// this.addedProduct.push(newProduct) ;
-//  } }
-
-// onItemAdded(product:Product){
-// console.log(product);
-// //logic
-// const newProduct:ProductWithCounter=
-// {...product, cartCounter:1};
-
-// this.addedProduct.push(newProduct) ;
-// } 
+  title = 'angular-project';
+  // addedProduct: Product[] = [];
+  
+  // Adding Number of product beside without repeating
+//   onItemAdding(product: Product){
+//   console.log(product);
+//   if(this.addedProduct.includes(product))
+//   {
+//     product.Count++;
+//   }else{
+//     this.addedProduct.push(product);
+//   }
+// }
 }

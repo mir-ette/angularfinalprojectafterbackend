@@ -1,39 +1,49 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProductsItemComponent } from 'src/app/core/pruducts-features/products-item/products-item.component';
-import { Product, ProductWithCounter } from 'src/app/_models/product/product.model';
-import { productService } from 'src/app/_services/product/product.service';
+import { Product } from 'src/app/_models/product/product.model';
+import { ProductService } from 'src/app/_services/product/product.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.sass']
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-// @Input()
-//  addedProducts:ProductWithCounter[] =[]
-dropdownOpened=false;
-  // addedProducts: ProductWithCounter | undefined;
-  // addedProducts: ProductWithCounter | undefined;
-  // productService= new productService() ;
-  constructor(private productService :productService) {
-   
-   }
 
-  ngOnInit(): void {
-    this.productService.cartHasBeenChanged. subscribe( 
-      (res)=>{
-        this.addedProducts=res;
-      },
-      (err)=>{},
-      ()=>{}
-    ) 
+  addedProducts: Product[] = []; 
+  dropdownOpened = false;
+  // productService = new ProductService();
+    calculateTotal(): number{
+    let totalPrice = 0;
+    this.addedProducts.forEach(element => {
+      
+      totalPrice += (element.Count * (element.price - element.discount));
+    });
+    return totalPrice;
   }
+  constructor(private productService: ProductService) { }
+  ngOnInit(): void {
+    this.productService.cartHasBeenChanged.subscribe(
+      (res)=>{
+        this.addedProducts = res;
+
+      },(err)=>{
+
+      },()=>{}
+
+
+
+    )
+  }
+// Bounus Removing Item when press on button
+  removeItem(item :Product): void{
+  // delete this.addedProducts[0]
+  // this.addedProducts.pop();
+    this.addedProducts.splice(this.addedProducts.indexOf(item),1)
 }
-    
-// const productItem =new ProductItemComponent(productService:productService);
-// class  productItem{
-//   productService
-//   constructor(private productService:productService)
-//   this.productService=productService
-// }
-// }
+
+}
+
+function calculateTotal() {
+  throw new Error('Function not implemented.');
+}
+

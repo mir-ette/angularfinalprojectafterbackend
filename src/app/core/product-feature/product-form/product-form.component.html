@@ -1,6 +1,5 @@
-<!-- add Item -->
 <div class=" container">
-    <form class="add-product" #productForm = ngForm>
+    <form class="add-product" #productForm="ngForm">
         <div class="add-product__images slider">
             <div class="add-product__image-actions">
                 <div class="add-product__image-action">
@@ -39,7 +38,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Description</label>
-                                <textarea class="form-control"  ngModel name="description" id="" cols="30" rows="4"></textarea>
+                                <textarea class="form-control" name="description" id="" cols="30" rows="4"></textarea>
                             </div>
                         </div>
                         <div class="tabs__body ">
@@ -57,7 +56,7 @@
 
                 <div class="form-group">
                     <label for="">Price</label>
-                    <input class="form-control" type="text"ngModel name="" id="price">
+                    <input class="form-control" type="text" ngModel name="price" id="">
                 </div>
                 <div class="add-product__discount">
                     <div class="form-group">
@@ -69,7 +68,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Discount</label>
-                        <input class="form-control" type="text"  ngModel name="discount" id="">
+                        <input class="form-control" type="text" ngModel name="discount" id="">
                     </div>
                 </div>
                 <div class="form-group">
@@ -137,7 +136,7 @@
                 </div>
                 <div class="add-product__actions">
                     <button href="#" class="btn btn--gray">Cancel</button>
-                    <button (click)="onAddedProduct(productForm)" class="btn btn--primary">Add</button>
+                    <button (click)="onAddProduct(productForm)" class="btn btn--primary">Add</button>
                 </div>
             </div>
         </div>
