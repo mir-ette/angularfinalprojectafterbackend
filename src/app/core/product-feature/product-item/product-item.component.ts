@@ -10,15 +10,24 @@ import { ProductService } from 'src/app/_services/product/product.service';
 export class ProductItemComponent implements OnInit {
   @Input()
   productItem!: Product;
-
-  // @Output()
+  // deleteId! :number
+   @Output()
   itemAddedToCart: EventEmitter<Product> = new EventEmitter<Product>();
+  productsArray: any;
   
   constructor(private productService: ProductService) { }
 
 
   ngOnInit(): void {
   }
+  onDeleteProduct(product: Product){
+    this.productService.deleteProduct()
+    console.log(product);
+  }
+  // RemoveProduct(productItem : Product): void{
+  //   this.productsArray.splice(this.productsArray.indexOf(this.productItem),1);
+  // }
+  
   onItemAdded(){
     console.log(this.productItem);
     // this.itemAddedToCart.emit(this.productItem);

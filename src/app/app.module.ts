@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { HttpClientModule}from '@angular/common/http'
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { ProductItemComponent } from './core/product-feature/product-item/product-item.component';
 import { ProductListingComponent } from './core/product-feature/product-listing/product-listing.component';
@@ -14,6 +14,7 @@ import { ProductDetailsComponent } from './core/product-feature/product-details/
 import { ProductFormComponent } from './core/product-feature/product-form/product-form.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './shared/login/login.component';
 
 @NgModule({
   declarations: [
@@ -26,15 +27,20 @@ import { FormsModule } from '@angular/forms';
     ProductDetailsComponent,
     ProductFormComponent,
     NotFoundComponent,
+    LoginComponent,
 
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [ProductService],
-  bootstrap: [AppComponent]
+  //providers: [],
+ //bootstrap: []
+  
+   providers: [ProductService],
+   bootstrap: [AppComponent]
 })
 export class AppModule { }
